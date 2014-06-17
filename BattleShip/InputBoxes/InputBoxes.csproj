@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70012D4C-5FC7-464E-B4C8-ED4BF426020B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InputBoxes</RootNamespace>
+    <AssemblyName>InputBoxes</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Client.Designer.cs">
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Client_Conneting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Client_Conneting.Designer.cs">
+      <DependentUpon>frm_Client_Conneting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Server_Conneting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Server_Conneting.Designer.cs">
+      <DependentUpon>frm_Server_Conneting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OffLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OffLine.Designer.cs">
+      <DependentUpon>OffLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Client.resx">
+      <DependentUpon>Client.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Client_Conneting.resx">
+      <DependentUpon>frm_Client_Conneting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Server_Conneting.resx">
+      <DependentUpon>frm_Server_Conneting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OffLine.resx">
+      <DependentUpon>OffLine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Connector\Connector.csproj">
+      <Project>{116C7457-F464-4D3F-A81C-31EE3C5F0194}</Project>
+      <Name>Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OffLine\OffLine.csproj">
+      <Project>{C1BA868C-05CD-435A-924A-660DB8EFBEB1}</Project>
+      <Name>OffLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Player\Player.csproj">
+      <Project>{FA5DC561-037A-4D74-B0A9-FFBB6A4B021C}</Project>
+      <Name>Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server\frm_PlayOnline.csproj">
+      <Project>{583FAFE0-122C-4786-B174-355661881462}</Project>
+      <Name>frm_PlayOnline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShipBuilder\ShipBuilder.csproj">
+      <Project>{E6A14785-E72D-45A7-9AEC-AA3B5D7148D5}</Project>
+      <Name>ShipBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
