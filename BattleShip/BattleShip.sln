@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip", "BattleShip\BattleShip.csproj", "{48A6C8C4-6268-4183-9ACB-6C7AD15DC545}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA342D3E-F374-4257-838A-6EF5397E518F} = {DA342D3E-F374-4257-838A-6EF5397E518F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleField", "BattleField\BattleField.csproj", "{444D2C9C-D16F-4DF8-AC65-661BA8E2DBCF}"
 EndProject
