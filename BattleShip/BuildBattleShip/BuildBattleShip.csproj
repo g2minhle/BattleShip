@@ -17,6 +17,6 @@
   <Target Name="Rebuild" DependsOnTargets="Build">
   </Target>
   <Target Name="Clean">
-    <RemoveDir Directories="../bin" />
+    <RemoveDir Directories="../bin/Resources" />
   </Target>
 </Project>

@@ -23,6 +23,8 @@ namespace Const
         public static Color WaterColor { get { return Color.Aquamarine; } }
         public static Color ShootedWaterColor { get { return Color.Blue; } }
 
+
+        public static string ShipLocation { get { return "Resources\\Ship\\{0}\\{1}.wmf"; } }
         public static string TheFire { get { return "Resources\\fire.bmp"; } }
 
         public static string MissedSound { get { return "Resources\\Sound\\IntoWater.wav"; } }

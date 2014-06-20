@@ -8,7 +8,7 @@ namespace Tools
     {
         public static void LoadShip(ref PictureBox pic, int id, int direction)
         {
-            pic.Load("Ship\\" + direction + "\\" + id + ".wmf");
+            pic.Load(string.Format("Ship\\{0}\\{1}.wmf", +direction, id));
         }
         public static void GetPosOfLB(ref int i, ref int j, string s)
         {
