@@ -1,104 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5B94C14-5258-4EAA-8E37-4CDEAC009FB8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BuildBattleShip</RootNamespace>
-    <AssemblyName>BuildBattleShip</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+    <ProjectGuid>{DA342D3E-F374-4257-838A-6EF5397E518F}</ProjectGuid>
+  </PropertyGroup>  
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\1fire.bmp" />
-    <Content Include="Resources\fire.bmp" />
-    <Content Include="Resources\fire2.gif" />
-    <Content Include="Resources\fire25.gif" />
-    <Content Include="Resources\fire3.gif" />
-    <Content Include="Resources\Flame-04.gif" />
-    <Content Include="Resources\flashfire.gif" />
-    <Content Include="Resources\Ship\0\1.WMF" />
-    <Content Include="Resources\Ship\0\2.WMF" />
-    <Content Include="Resources\Ship\0\3.WMF" />
-    <Content Include="Resources\Ship\0\4.WMF" />
-    <Content Include="Resources\Ship\0\5.WMF" />
-    <Content Include="Resources\Ship\1\1.WMF" />
-    <Content Include="Resources\Ship\1\2.WMF" />
-    <Content Include="Resources\Ship\1\3.WMF" />
-    <Content Include="Resources\Ship\1\4.WMF" />
-    <Content Include="Resources\Ship\1\5.WMF" />
-    <Content Include="Resources\Ship\2\1.WMF" />
-    <Content Include="Resources\Ship\2\2.WMF" />
-    <Content Include="Resources\Ship\2\3.WMF" />
-    <Content Include="Resources\Ship\2\4.WMF" />
-    <Content Include="Resources\Ship\2\5.WMF" />
-    <Content Include="Resources\Ship\3\1.WMF" />
-    <Content Include="Resources\Ship\3\2.WMF" />
-    <Content Include="Resources\Ship\3\3.WMF" />
-    <Content Include="Resources\Ship\3\4.WMF" />
-    <Content Include="Resources\Ship\3\5.WMF" />
-    <Content Include="Resources\Sound\357_shot1.wav" />
-    <Content Include="Resources\Sound\357_shot2.wav" />
-    <Content Include="Resources\Sound\buttonclick.wav" />
-    <Content Include="Resources\Sound\buttonclickrelease.wav" />
-    <Content Include="Resources\Sound\buttonrollover.wav" />
-    <Content Include="Resources\Sound\Destroyed.wav" />
-    <Content Include="Resources\Sound\explode5.wav" />
-    <Content Include="Resources\Sound\Fire.wav" />
-    <Content Include="Resources\Sound\GunFire1.wav" />
-    <Content Include="Resources\Sound\GunFire2.wav" />
-    <Content Include="Resources\Sound\IntoWater.wav" />
-    <Content Include="Resources\Sound\Lose.wav" />
-    <Content Include="Resources\Sound\Sea.wav" />
-    <Content Include="Resources\Sound\Win.wav" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+    <Resources Include="Resources\**\*.*" />
+  </ItemGroup>  
+  <Target Name="Build" DependsOnTargets="Clean">
+    <MSBuild Projects="BuildBattleShip.csproj" Targets="Clean" />
+    <Copy SourceFiles="@(Resources)" DestinationFiles="@(Resources->'../bin/Resources/%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
-  <Target Name="AfterBuild">
+  <Target Name="Rebuild" DependsOnTargets="Build">
   </Target>
-  -->
+  <Target Name="Clean">
+    <RemoveDir Directories="../bin" />
+  </Target>
 </Project>
